@@ -56,11 +56,20 @@ function render(query = "") {
   grid.replaceChildren();
   for (const skill of visible) {
     const fragment = template.content.cloneNode(true);
+    const card = fragment.querySelector(".skill-card");
+    const cardLink = fragment.querySelector(".skill-card-link");
     fragment.querySelector("h3").textContent = skill.displayName;
     fragment.querySelector(".description").textContent = skill.description;
     fragment.querySelector(".skill-name").textContent = `$${skill.name}`;
     fragment.querySelector(".category-badge").textContent = skill.category?.label ?? "通用工具";
     fragment.querySelector(".file-count").textContent = `${skill.files.length} FILE${skill.files.length === 1 ? "" : "S"}`;
+    if (configuredRepository()) {
+      card.classList.add("is-linked");
+      cardLink.href = `${config.repository}/tree/main/${skill.path}`;
+      cardLink.setAttribute("aria-label", `在 GitHub 查看 ${skill.displayName}`);
+    } else {
+      cardLink.hidden = true;
+    }
     fragment.querySelector(".copy-prompt").addEventListener("click", () =>
       copy(installPrompt(skill), `已复制 ${skill.name} 的安装提示`),
     );

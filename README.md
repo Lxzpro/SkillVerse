@@ -1,5 +1,7 @@
 # SkillVerse
 
+![SkillVerse：把好方法，变成可复用的能力](./docs/images/skillverse-hero.png)
+
 SkillVerse 是一个以 GitHub 为唯一数据源的个人 Codex Skill 仓库。Skill 源码、版本历史和发布记录保存在 Git 中，目录网站可以部署到 Vercel、Cloudflare Pages 或 GitHub Pages。
 
 ## 功能
@@ -8,7 +10,7 @@ SkillVerse 是一个以 GitHub 为唯一数据源的个人 Codex Skill 仓库。
 - 校验 `SKILL.md` 和 `agents/openai.yaml`。
 - 自动生成公开的 Skill JSON 索引。
 - 根据 Skill 内容自动识别主分类和相关分类。
-- 提供支持搜索和复制安装提示的响应式网站。
+- 提供支持搜索、分类筛选、GitHub 源码跳转和复制安装提示的响应式网站。
 - 通过 GitHub Actions 自动检查、构建和发布。
 - 为每个 Skill 生成压缩包和 SHA-256 校验文件。
 
@@ -71,6 +73,11 @@ SkillVerse/
 │       └── release.yml             # 根据 v* 标签创建 GitHub Release
 ├── config/
 │   └── categories.json             # 仓库级自动分类词典
+├── docs/
+│   └── images/
+│       ├── skillverse-auto-classify.png  # 自动分类宣传图
+│       ├── skillverse-hero.png           # README 项目头图
+│       └── skillverse-publish-flow.png    # 自动发布流程宣传图
 ├── catalog/
 │   └── skills.json                 # 自动生成的公开 Skill 索引
 ├── scripts/
@@ -138,6 +145,8 @@ skills/<skill-name>/
 - 不要提交 API Key、Token、Cookie、密码或其他敏感信息。
 
 ## 将生成好的 Skill 加入网站
+
+![提交一次，自动上线](./docs/images/skillverse-publish-flow.png)
 
 网站不直接接收上传文件。Skill 需要先放进本仓库的 `skills/` 目录，再提交到 GitHub；Vercel 检测到 GitHub 更新后会自动重新部署网站。
 
@@ -290,6 +299,8 @@ GitHub 收到推送后：
 以后每增加一个 Skill，都重复以上流程。无需在 Vercel 控制台中手动上传文件。
 
 ## Skill 自动分类
+
+![自动识别，智能分类](./docs/images/skillverse-auto-classify.png)
 
 不需要在每个 `SKILL.md` 中手动填写分类。执行 `npm run catalog` 或 `npm run build` 时，分类器会自动读取：
 
