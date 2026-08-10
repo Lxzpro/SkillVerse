@@ -7,6 +7,7 @@ SkillVerse 是一个以 GitHub 为唯一数据源的个人 Codex Skill 仓库。
 - 使用统一模板创建 Codex Skill。
 - 校验 `SKILL.md` 和 `agents/openai.yaml`。
 - 自动生成公开的 Skill JSON 索引。
+- 根据 Skill 内容自动识别主分类和相关分类。
 - 提供支持搜索和复制安装提示的响应式网站。
 - 通过 GitHub Actions 自动检查、构建和发布。
 - 为每个 Skill 生成压缩包和 SHA-256 校验文件。
@@ -68,10 +69,13 @@ SkillVerse/
 │   └── workflows/
 │       ├── ci.yml                  # 测试、Skill 校验和网站构建
 │       └── release.yml             # 根据 v* 标签创建 GitHub Release
+├── config/
+│   └── categories.json             # 仓库级自动分类词典
 ├── catalog/
 │   └── skills.json                 # 自动生成的公开 Skill 索引
 ├── scripts/
 │   ├── lib/
+│   │   ├── classify-skill.mjs      # 基于内容和关键词自动分类
 │   │   └── skills.mjs              # Skill 扫描、解析和公共工具
 │   ├── build-site.mjs              # 构建静态目录网站
 │   ├── dev-server.mjs              # 本地预览服务器
@@ -91,6 +95,7 @@ SkillVerse/
 │       │   └── openai.yaml         # Skill 的界面元数据
 │       └── SKILL.md                 # Skill 的触发描述和工作流
 ├── test/
+│   ├── classify-skill.test.mjs     # 自动分类规则测试
 │   └── skills.test.mjs             # 解析和命名规则测试
 ├── .gitattributes                  # Git 文本与二进制文件规则
 ├── .gitignore                      # 忽略构建和本地产物
@@ -283,6 +288,62 @@ GitHub 收到推送后：
 如果 Vercel 部署失败，先查看 Vercel Build Logs，再在本地重新运行 `npm run build` 定位错误。
 
 以后每增加一个 Skill，都重复以上流程。无需在 Vercel 控制台中手动上传文件。
+
+## Skill 自动分类
+
+不需要在每个 `SKILL.md` 中手动填写分类。执行 `npm run catalog` 或 `npm run build` 时，分类器会自动读取：
+
+1. Skill 目录名和 `name`。
+2. 必填的 `description`。
+3. `agents/openai.yaml` 中的显示名称和简短说明。
+4. `SKILL.md` 正文。
+5. `scripts/`、`references/` 和 `assets/` 中的文件名。
+
+分类器使用仓库级 [`config/categories.json`](./config/categories.json) 进行关键词评分：
+
+```text
+名称和 description 命中：高权重
+SKILL.md 正文命中：辅助权重
+资源文件名命中：中等权重
+```
+
+得分最高的分类成为主分类，接近主分类得分的结果成为相关分类。如果没有任何关键词命中，则自动归入“通用工具”。分类结果及识别依据会写入 `catalog/skills.json`：
+
+```json
+{
+  "category": {
+    "id": "devops",
+    "label": "部署与工程化"
+  },
+  "relatedCategories": [
+    {
+      "id": "automation",
+      "label": "自动化与工作流"
+    }
+  ],
+  "classification": {
+    "method": "keyword-rules-v1",
+    "confidence": 0.67,
+    "matchedKeywords": ["github", "deploy", "release"]
+  }
+}
+```
+
+网站根据这些生成结果自动显示分类标签和筛选按钮。新增 Skill 时不需要修改分类配置；只有希望增加新的分类体系或提高识别准确率时，才需要统一调整 `config/categories.json`。
+
+当前内置分类：
+
+- 自动化与工作流
+- 开发与编程
+- 前端与设计
+- 数据与分析
+- 内容与文档
+- 研究与浏览器
+- 部署与工程化
+- 安全与认证
+- 平台与集成
+- 图像与媒体
+- 通用工具
 
 ## 网站配置
 

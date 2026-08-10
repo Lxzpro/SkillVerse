@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "categories": [
+    {
+      "id": "automation",
+      "label": "自动化与工作流",
+      "keywords": ["automation", "automate", "workflow", "scheduled", "batch", "pipeline", "task", "自动化", "工作流", "定时", "批处理"]
+    },
+    {
+      "id": "development",
+      "label": "开发与编程",
+      "keywords": ["code", "coding", "developer", "implementation", "refactor", "debug", "test", "api", "sdk", "javascript", "python", "编程", "开发", "代码", "调试", "测试"]
+    },
+    {
+      "id": "frontend-design",
+      "label": "前端与设计",
+      "keywords": ["frontend", "ui", "ux", "design", "css", "html", "react", "vue", "figma", "website", "web page", "前端", "设计", "页面", "网站", "组件"]
+    },
+    {
+      "id": "data-analysis",
+      "label": "数据与分析",
+      "keywords": ["data", "analysis", "csv", "excel", "spreadsheet", "sql", "database", "chart", "visualization", "数据", "分析", "表格", "数据库", "可视化"]
+    },
+    {
+      "id": "content-docs",
+      "label": "内容与文档",
+      "keywords": ["document", "docs", "writing", "copywriting", "seo", "blog", "pdf", "slide", "presentation", "resume", "文档", "写作", "内容", "博客", "简历", "演示"]
+    },
+    {
+      "id": "research-browser",
+      "label": "研究与浏览器",
+      "keywords": ["research", "search", "browser", "scrape", "crawl", "source", "research paper", "研究", "搜索", "浏览器", "网页", "爬取", "资料"]
+    },
+    {
+      "id": "devops",
+      "label": "部署与工程化",
+      "keywords": ["deploy", "deployment", "vercel", "cloudflare", "github", "git repository", "ci", "release", "docker", "infrastructure", "发布", "部署", "运维", "仓库"]
+    },
+    {
+      "id": "security",
+      "label": "安全与认证",
+      "keywords": ["security", "auth", "oauth", "vulnerability", "secret", "permission", "sso", "安全", "认证", "权限", "漏洞", "密钥"]
+    },
+    {
+      "id": "integrations",
+      "label": "平台与集成",
+      "keywords": ["integration", "mcp", "webhook", "slack", "linear", "notion", "supabase", "stripe", "connector", "集成", "连接器", "第三方平台"]
+    },
+    {
+      "id": "media",
+      "label": "图像与媒体",
+      "keywords": ["image", "video", "audio", "animation", "portrait", "photo", "illustration", "图片", "图像", "视频", "音频", "动画", "插画"]
+    },
+    {
+      "id": "general",
+      "label": "通用工具",
+      "keywords": []
+    }
+  ]
+}

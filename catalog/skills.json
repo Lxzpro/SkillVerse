@@ -1,6 +1,52 @@
 {
   "schemaVersion": 1,
   "generatedAt": null,
+  "categories": [
+    {
+      "id": "automation",
+      "label": "自动化与工作流"
+    },
+    {
+      "id": "development",
+      "label": "开发与编程"
+    },
+    {
+      "id": "frontend-design",
+      "label": "前端与设计"
+    },
+    {
+      "id": "data-analysis",
+      "label": "数据与分析"
+    },
+    {
+      "id": "content-docs",
+      "label": "内容与文档"
+    },
+    {
+      "id": "research-browser",
+      "label": "研究与浏览器"
+    },
+    {
+      "id": "devops",
+      "label": "部署与工程化"
+    },
+    {
+      "id": "security",
+      "label": "安全与认证"
+    },
+    {
+      "id": "integrations",
+      "label": "平台与集成"
+    },
+    {
+      "id": "media",
+      "label": "图像与媒体"
+    },
+    {
+      "id": "general",
+      "label": "通用工具"
+    }
+  ],
   "skills": [
     {
       "name": "create-anime-pv-short",
@@ -14,7 +60,24 @@
         "references/prompt-framework.md",
         "references/style-bible.md"
       ],
-      "updatedAt": null
+      "updatedAt": null,
+      "category": {
+        "id": "media",
+        "label": "图像与媒体"
+      },
+      "relatedCategories": [],
+      "classification": {
+        "method": "keyword-rules-v1",
+        "confidence": 1,
+        "matchedKeywords": [
+          "image",
+          "video",
+          "图片",
+          "视频",
+          "动画",
+          "animation"
+        ]
+      }
     },
     {
       "name": "generate-lived-in-portraits",
@@ -29,7 +92,21 @@
         "references/authenticity-guidelines.md",
         "references/reference-profile.md"
       ],
-      "updatedAt": null
+      "updatedAt": null,
+      "category": {
+        "id": "media",
+        "label": "图像与媒体"
+      },
+      "relatedCategories": [],
+      "classification": {
+        "method": "keyword-rules-v1",
+        "confidence": 1,
+        "matchedKeywords": [
+          "image",
+          "portrait",
+          "photo"
+        ]
+      }
     },
     {
       "name": "manage-skillverse",
@@ -41,7 +118,23 @@
         "SKILL.md",
         "agents/openai.yaml"
       ],
-      "updatedAt": null
+      "updatedAt": null,
+      "category": {
+        "id": "devops",
+        "label": "部署与工程化"
+      },
+      "relatedCategories": [],
+      "classification": {
+        "method": "keyword-rules-v1",
+        "confidence": 1,
+        "matchedKeywords": [
+          "github",
+          "git repository",
+          "release",
+          "deploy",
+          "ci"
+        ]
+      }
     }
   ]
 }

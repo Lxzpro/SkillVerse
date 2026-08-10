@@ -57,6 +57,7 @@
             <kbd>/</kbd>
           </label>
         </div>
+        <div id="category-filters" class="category-filters" aria-label="按分类筛选"></div>
 
         <div id="skill-grid" class="skill-grid" aria-live="polite"></div>
         <div id="empty-state" class="empty-state" hidden>
@@ -91,7 +92,10 @@
       <article class="skill-card">
         <div class="card-top">
           <span class="skill-mark">SK</span>
-          <span class="file-count"></span>
+          <div class="card-meta">
+            <span class="category-badge"></span>
+            <span class="file-count"></span>
+          </div>
         </div>
         <h3></h3>
         <p class="description"></p>

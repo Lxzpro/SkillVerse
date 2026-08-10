@@ -56,10 +56,16 @@ nav a:hover { opacity: .55; }
 .search svg { width: 21px; fill: none; stroke: currentColor; stroke-width: 1.8; }
 .search input { flex: 1; border: 0; outline: 0; background: transparent; font-size: 17px; }
 kbd { border: 1px solid var(--line); padding: 3px 8px; font: 12px ui-monospace, "Cascadia Mono", monospace; color: var(--muted); }
+.category-filters { display: flex; flex-wrap: wrap; gap: 8px; margin: -8px 0 30px; }
+.category-filter { border: 1px solid var(--ink); background: transparent; padding: 8px 13px; cursor: pointer; font-size: 12px; font-weight: 700; transition: background .2s, color .2s; }
+.category-filter[aria-pressed="true"] { background: var(--ink); color: white; }
 .skill-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
 .skill-card { min-height: 330px; padding: 26px; display: flex; flex-direction: column; border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); background: rgba(255,255,255,.15); transition: background .25s, transform .25s; }
 .skill-card:hover { position: relative; z-index: 1; background: var(--lime); transform: translate(-4px,-4px); box-shadow: 8px 8px 0 var(--ink); }
 .card-top, .card-footer { display: flex; align-items: center; justify-content: space-between; }
+.card-meta { display: flex; align-items: flex-end; flex-direction: column; gap: 7px; }
+.category-badge { background: var(--ink); color: var(--paper); padding: 5px 8px; font-size: 10px; font-weight: 700; }
+.skill-card:hover .category-badge { background: var(--orange); color: var(--ink); }
 .skill-mark { width: 42px; height: 42px; display: grid; place-items: center; border: 1px solid var(--ink); font: 500 11px ui-monospace, "Cascadia Mono", monospace; }
 .file-count { color: var(--muted); font: 11px ui-monospace, "Cascadia Mono", monospace; }
 .skill-card h3 { font-size: 28px; letter-spacing: -.04em; margin: 35px 0 12px; overflow-wrap: anywhere; }

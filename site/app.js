@@ -5,6 +5,8 @@ const empty = document.querySelector("#empty-state");
 const toast = document.querySelector("#toast");
 let skills = [];
 let config = {};
+let categories = [];
+let activeCategory = "all";
 
 function configuredRepository() {
   return config.repository && !config.repository.includes("your-name");
@@ -33,12 +35,23 @@ function installPrompt(skill) {
 
 function render(query = "") {
   const normalized = query.trim().toLocaleLowerCase();
-  const visible = skills.filter((skill) =>
-    [skill.name, skill.displayName, skill.description]
+  const visible = skills.filter((skill) => {
+    const matchesQuery = [
+      skill.name,
+      skill.displayName,
+      skill.description,
+      skill.category?.label,
+      ...(skill.relatedCategories ?? []).map((category) => category.label),
+    ]
       .join(" ")
       .toLocaleLowerCase()
-      .includes(normalized),
-  );
+      .includes(normalized);
+    const matchesCategory =
+      activeCategory === "all" ||
+      skill.category?.id === activeCategory ||
+      (skill.relatedCategories ?? []).some((category) => category.id === activeCategory);
+    return matchesQuery && matchesCategory;
+  });
 
   grid.replaceChildren();
   for (const skill of visible) {
@@ -46,6 +59,7 @@ function render(query = "") {
     fragment.querySelector("h3").textContent = skill.displayName;
     fragment.querySelector(".description").textContent = skill.description;
     fragment.querySelector(".skill-name").textContent = `$${skill.name}`;
+    fragment.querySelector(".category-badge").textContent = skill.category?.label ?? "通用工具";
     fragment.querySelector(".file-count").textContent = `${skill.files.length} FILE${skill.files.length === 1 ? "" : "S"}`;
     fragment.querySelector(".copy-prompt").addEventListener("click", () =>
       copy(installPrompt(skill), `已复制 ${skill.name} 的安装提示`),
@@ -53,6 +67,32 @@ function render(query = "") {
     grid.append(fragment);
   }
   empty.hidden = visible.length !== 0;
+}
+
+function renderCategoryFilters() {
+  const container = document.querySelector("#category-filters");
+  const usedIds = new Set(
+    skills.flatMap((skill) => [skill.category?.id, ...(skill.relatedCategories ?? []).map((item) => item.id)]),
+  );
+  const visibleCategories = categories.filter((category) => usedIds.has(category.id));
+  const items = [{ id: "all", label: "全部" }, ...visibleCategories];
+  container.replaceChildren();
+  for (const category of items) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "category-filter";
+    button.textContent = category.label;
+    button.dataset.category = category.id;
+    button.setAttribute("aria-pressed", String(category.id === activeCategory));
+    button.addEventListener("click", () => {
+      activeCategory = category.id;
+      for (const item of container.querySelectorAll("button")) {
+        item.setAttribute("aria-pressed", String(item.dataset.category === activeCategory));
+      }
+      render(input.value);
+    });
+    container.append(button);
+  }
 }
 
 async function init() {
@@ -65,6 +105,7 @@ async function init() {
     const catalog = await catalogResponse.json();
     config = await configResponse.json();
     skills = catalog.skills ?? [];
+    categories = catalog.categories ?? [];
 
     document.querySelector("#skill-count").textContent = skills.length;
     document.querySelector("#site-description").textContent = config.description;
@@ -72,6 +113,7 @@ async function init() {
     const repoLink = document.querySelector("#repo-link");
     if (configuredRepository()) repoLink.href = config.repository;
     else repoLink.hidden = true;
+    renderCategoryFilters();
     render();
   } catch (error) {
     console.error(error);

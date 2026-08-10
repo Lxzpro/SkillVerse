@@ -1,10 +1,14 @@
-import { mkdirSync, writeFileSync } from "node:fs";
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { listSkillDirectories, readSkill, rootDir } from "./lib/skills.mjs";
+import { classifySkill } from "./lib/classify-skill.mjs";
+
+const taxonomy = JSON.parse(readFileSync(join(rootDir, "config", "categories.json"), "utf8"));
 
 const skills = listSkillDirectories().map((directory) => {
   const skill = readSkill(directory);
   const metadata = skill.parsed.frontmatter ?? {};
+  const categories = classifySkill(skill, taxonomy);
   return {
     name: metadata.name ?? skill.folderName,
     displayName: skill.agent.display_name ?? metadata.name ?? skill.folderName,
@@ -13,12 +17,16 @@ const skills = listSkillDirectories().map((directory) => {
     path: skill.path,
     files: skill.files,
     updatedAt: skill.updatedAt,
+    category: categories.primary,
+    relatedCategories: categories.related,
+    classification: categories.classification,
   };
 });
 
 const catalog = {
   schemaVersion: 1,
   generatedAt: null,
+  categories: taxonomy.categories.map(({ id, label }) => ({ id, label })),
   skills,
 };
 
