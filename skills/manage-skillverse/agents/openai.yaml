@@ -1,0 +1,4 @@
+interface:
+  display_name: "Manage SkillVerse"
+  short_description: "Create, validate, catalog, and publish personal Codex skills"
+  default_prompt: "Use $manage-skillverse to add or update a skill in my SkillVerse repository."

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="{{SITE_DESCRIPTION}}" />
+    <meta name="theme-color" content="#11130f" />
+    <title>{{SITE_TITLE}}</title>
+    <link rel="icon" href="./mark.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./app.js" type="module"></script>
+  </head>
+  <body>
+    <div class="noise" aria-hidden="true"></div>
+    <header class="topbar wrap">
+      <a class="brand" href="./" aria-label="SkillVerse 首页">
+        <img src="./mark.svg" alt="" width="32" height="32" />
+        <span>SkillVerse</span>
+      </a>
+      <nav aria-label="主要导航">
+        <a href="#skills">Skills</a>
+        <a id="repo-link" href="#" target="_blank" rel="noreferrer">GitHub ↗</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero wrap">
+        <div class="eyebrow"><span class="pulse"></span> PERSONAL SKILL LIBRARY</div>
+        <h1>把好方法，<br /><em>变成可复用的能力。</em></h1>
+        <p id="site-description" class="lede">{{SITE_DESCRIPTION}}</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#skills">浏览 Skills</a>
+          <button class="button ghost" id="copy-clone" type="button">复制仓库地址</button>
+        </div>
+        <div class="orbit" aria-hidden="true">
+          <span class="orbit-core">S</span>
+          <span class="orbit-label label-one">PROMPTS</span>
+          <span class="orbit-label label-two">WORKFLOWS</span>
+          <span class="orbit-label label-three">TOOLS</span>
+        </div>
+      </section>
+
+      <section class="catalog wrap" id="skills" aria-labelledby="skills-title">
+        <div class="section-heading">
+          <div>
+            <span class="section-index">01 / COLLECTION</span>
+            <h2 id="skills-title">Skill 目录</h2>
+          </div>
+          <p><strong id="skill-count">0</strong> 个经过校验的工作流</p>
+        </div>
+
+        <div class="toolbar">
+          <label class="search">
+            <span class="sr-only">搜索 Skill</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.3-4.3m2.3-5.2a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z" /></svg>
+            <input id="search-input" type="search" placeholder="按名称或能力搜索…" autocomplete="off" />
+            <kbd>/</kbd>
+          </label>
+        </div>
+
+        <div id="skill-grid" class="skill-grid" aria-live="polite"></div>
+        <div id="empty-state" class="empty-state" hidden>
+          <span>∅</span>
+          <h3>这里还没有匹配的 Skill</h3>
+          <p>换个关键词，或者创建你的第一个工作流。</p>
+        </div>
+      </section>
+
+      <section class="workflow wrap" aria-labelledby="workflow-title">
+        <div class="section-heading inverse">
+          <div>
+            <span class="section-index">02 / WORKFLOW</span>
+            <h2 id="workflow-title">一次推送，处处更新</h2>
+          </div>
+        </div>
+        <ol>
+          <li><span>01</span><strong>创建</strong><p>用统一模板生成 Skill。</p></li>
+          <li><span>02</span><strong>校验</strong><p>自动检查结构和元数据。</p></li>
+          <li><span>03</span><strong>推送</strong><p>GitHub 保存历史与版本。</p></li>
+          <li><span>04</span><strong>上线</strong><p>站点自动构建并部署。</p></li>
+        </ol>
+      </section>
+    </main>
+
+    <footer class="wrap">
+      <p>Built from <code>SKILL.md</code>, published from Git.</p>
+      <p id="owner-name">SkillVerse</p>
+    </footer>
+
+    <template id="skill-card-template">
+      <article class="skill-card">
+        <div class="card-top">
+          <span class="skill-mark">SK</span>
+          <span class="file-count"></span>
+        </div>
+        <h3></h3>
+        <p class="description"></p>
+        <div class="card-footer">
+          <code class="skill-name"></code>
+          <button class="copy-prompt" type="button" aria-label="复制安装提示">复制安装提示</button>
+        </div>
+      </article>
+    </template>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": null,
+  "skills": [
+    {
+      "name": "manage-skillverse",
+      "displayName": "Manage SkillVerse",
+      "description": "Create, update, validate, catalog, package, and publish personal Codex skills in a SkillVerse Git repository. Use when adding a new skill under skills/, revising an existing SKILL.md or agents/openai.yaml, rebuilding the public skill catalog, preparing release archives, or publishing SkillVerse changes to GitHub.",
+      "shortDescription": "Create, validate, catalog, and publish personal Codex skills",
+      "path": "skills/manage-skillverse",
+      "files": [
+        "SKILL.md",
+        "agents/openai.yaml"
+      ],
+      "updatedAt": null
+    }
+  ]
+}

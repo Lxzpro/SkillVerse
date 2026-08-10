@@ -1,0 +1,19 @@
+{
+  "name": "skillverse",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A Git-first home for personal Codex skills.",
+  "scripts": {
+    "skill:new": "node scripts/new-skill.mjs",
+    "skill:check": "node scripts/validate-skills.mjs",
+    "catalog": "node scripts/generate-catalog.mjs",
+    "package:skills": "node scripts/package-skills.mjs",
+    "build": "node scripts/build-site.mjs",
+    "dev": "node scripts/dev-server.mjs",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
