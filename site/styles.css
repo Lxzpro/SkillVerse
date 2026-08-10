@@ -77,6 +77,20 @@ kbd { border: 1px solid var(--line); padding: 3px 8px; font: 12px ui-monospace, 
 .empty-state span { font-size: 60px; color: var(--orange); }
 .empty-state h3 { font-size: 24px; margin-bottom: 4px; }.empty-state p { color: var(--muted); }
 
+.contribute { display: grid; grid-template-columns: .95fr 1.05fr; border: 1px solid var(--ink); background: var(--orange); margin-bottom: 24px; }
+.contribute-intro { padding: 64px; border-right: 1px solid var(--ink); }
+.contribute-intro h2 { max-width: 540px; margin: 18px 0 22px; font-size: clamp(36px, 4vw, 58px); line-height: 1.06; letter-spacing: -.055em; }
+.contribute-intro > p { max-width: 560px; line-height: 1.75; margin: 0; color: rgba(17,19,15,.72); }
+.contribute-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 22px; margin-top: 34px; }
+.text-link { padding-block: 5px; border-bottom: 1px solid currentColor; font-size: 13px; font-weight: 800; }
+.upload-steps { list-style: none; padding: 0; margin: 0; background: var(--paper); }
+.upload-steps li { min-height: 145px; display: grid; grid-template-columns: 55px 1fr; gap: 20px; padding: 27px 32px; align-items: start; border-bottom: 1px solid var(--ink); }
+.upload-steps li:last-child { border-bottom: 0; }
+.upload-steps li > span { width: 40px; height: 40px; display: grid; place-items: center; background: var(--lime); border: 1px solid var(--ink); font: 700 11px ui-monospace, "Cascadia Mono", monospace; box-shadow: 3px 3px 0 var(--ink); }
+.upload-steps strong { display: block; font-size: 20px; margin: 4px 0 8px; }
+.upload-steps p { color: var(--muted); line-height: 1.6; margin: 0; }
+.upload-steps code { font-size: .85em; color: var(--ink); }
+
 .workflow { width: min(1260px, calc(100% - 24px)); background: var(--ink); color: white; padding: 75px 60px; }
 .inverse .section-index { color: var(--lime); }
 .workflow ol { list-style: none; padding: 0; margin: 60px 0 0; display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid rgba(255,255,255,.25); }
@@ -92,6 +106,7 @@ footer { min-height: 130px; display: flex; align-items: center; justify-content:
   .orbit { opacity: .18; right: -100px; }
   .hero h1, .lede, .hero-actions, .eyebrow { position: relative; z-index: 1; }
   .skill-grid { grid-template-columns: repeat(2, 1fr); }
+  .contribute { grid-template-columns: 1fr; }.contribute-intro { border-right: 0; border-bottom: 1px solid var(--ink); }
   .workflow ol { grid-template-columns: repeat(2, 1fr); }
   .workflow li:nth-child(2) { border-right: 0; }.workflow li:nth-child(-n+2) { border-bottom: 1px solid rgba(255,255,255,.25); }
 }
@@ -104,6 +119,7 @@ footer { min-height: 130px; display: flex; align-items: center; justify-content:
   .section-heading { display: block; }.section-heading > p { margin-top: 14px; }
   .catalog { padding-block: 80px; }
   .skill-grid { grid-template-columns: 1fr; }
+  .contribute-intro { padding: 44px 24px; }.contribute-actions { align-items: flex-start; flex-direction: column; }.upload-steps li { grid-template-columns: 45px 1fr; padding: 24px 20px; }
   .workflow { padding: 55px 24px; }
   .workflow ol { grid-template-columns: 1fr; }.workflow li { border-right: 0; border-bottom: 1px solid rgba(255,255,255,.25); }.workflow li:last-child { border: 0; }
   footer { align-items: flex-start; justify-content: center; flex-direction: column; gap: 5px; }

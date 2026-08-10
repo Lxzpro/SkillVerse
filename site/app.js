@@ -111,8 +111,17 @@ async function init() {
     document.querySelector("#site-description").textContent = config.description;
     document.querySelector("#owner-name").textContent = config.owner;
     const repoLink = document.querySelector("#repo-link");
-    if (configuredRepository()) repoLink.href = config.repository;
-    else repoLink.hidden = true;
+    const contributeRepo = document.querySelector("#contribute-repo");
+    const contributeGuide = document.querySelector("#contribute-guide");
+    if (configuredRepository()) {
+      repoLink.href = config.repository;
+      contributeRepo.href = config.repository;
+      contributeGuide.href = `${config.repository}#将生成好的-skill-加入网站`;
+    } else {
+      repoLink.hidden = true;
+      contributeRepo.hidden = true;
+      contributeGuide.hidden = true;
+    }
     renderCategoryFilters();
     render();
   } catch (error) {

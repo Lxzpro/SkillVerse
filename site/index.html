@@ -67,10 +67,40 @@
         </div>
       </section>
 
+      <section class="contribute wrap" id="contribute" aria-labelledby="contribute-title">
+        <div class="contribute-intro">
+          <span class="section-index">02 / SHARE</span>
+          <h2 id="contribute-title">你有好用的 Skill？<br />欢迎分享给更多人。</h2>
+          <p>把生成好的 Skill 提交到 GitHub。通过自动校验后，它就会出现在这里。目前上传通过 GitHub 完成，网站不会接收或保存你的密钥。</p>
+          <div class="contribute-actions">
+            <a class="button primary" id="contribute-repo" href="#" target="_blank" rel="noreferrer">前往 GitHub 提交</a>
+            <a class="text-link" id="contribute-guide" href="#" target="_blank" rel="noreferrer">阅读完整上传指南 ↗</a>
+          </div>
+        </div>
+        <ol class="upload-steps">
+          <li>
+            <span>01</span>
+            <div><strong>准备文件夹</strong><p>确认 Skill 根目录直接包含 <code>SKILL.md</code>。</p></div>
+          </li>
+          <li>
+            <span>02</span>
+            <div><strong>放入仓库</strong><p>复制到 <code>skills/&lt;skill-name&gt;/</code>，不要重复嵌套目录。</p></div>
+          </li>
+          <li>
+            <span>03</span>
+            <div><strong>校验构建</strong><p>运行 <code>npm run build</code>，自动校验、分类并更新目录。</p></div>
+          </li>
+          <li>
+            <span>04</span>
+            <div><strong>提交发布</strong><p>推送分支或提交 Pull Request；合并后网站会自动上线。</p></div>
+          </li>
+        </ol>
+      </section>
+
       <section class="workflow wrap" aria-labelledby="workflow-title">
         <div class="section-heading inverse">
           <div>
-            <span class="section-index">02 / WORKFLOW</span>
+            <span class="section-index">03 / WORKFLOW</span>
             <h2 id="workflow-title">一次推送，处处更新</h2>
           </div>
         </div>
