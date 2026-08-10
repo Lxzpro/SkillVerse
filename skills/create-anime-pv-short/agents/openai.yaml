@@ -1,0 +1,4 @@
+interface:
+  display_name: "动漫 PV 视觉导演"
+  short_description: "生成动漫PV图片、短剧本、分镜与完整提示词"
+  default_prompt: "使用 $create-anime-pv-short，把我的故事构思制作成动漫PV图片提示词或5–15秒视频剧本、分镜和提示词。"

@@ -3,6 +3,35 @@
   "generatedAt": null,
   "skills": [
     {
+      "name": "create-anime-pv-short",
+      "displayName": "动漫 PV 视觉导演",
+      "description": "Expand a rough story, mood, character idea, reference image, or visual concept into a production-ready Japanese anime PV image or 5–15 second short, including image prompts, compact scripts, timed shot lists, transition and sound design, complete text-to-video prompts, and negative constraints. Use when the user asks for 动漫PV、日系动画短片、AE感转场、赛璐璐动态视觉、AI图片提示词、5秒/10秒/15秒AI视频、短剧本、分镜或视频提示词 in this established graphic motion style.",
+      "shortDescription": "生成动漫PV图片、短剧本、分镜与完整提示词",
+      "path": "skills/create-anime-pv-short",
+      "files": [
+        "SKILL.md",
+        "agents/openai.yaml",
+        "references/prompt-framework.md",
+        "references/style-bible.md"
+      ],
+      "updatedAt": null
+    },
+    {
+      "name": "generate-lived-in-portraits",
+      "displayName": "生活感真人肖像",
+      "description": "Analyze and calibrate portrait references, including beauty-filtered and editorial sources, then create or refine prompts for photorealistic people with natural asymmetry, physical interaction, candid expression, believable skin and hair, and everyday camera character. Use for text-to-image or image-to-image requests that ask for a real-person look, lifestyle snapshot, candid selfie, documentary portrait, reduced AI/plastic/over-retouched appearance, faithful extraction of visible non-sensitive features, or separation of useful styling cues from filters, face reshaping, screenshots, and watermarks.",
+      "shortDescription": "Calibrate references for candid human portrait realism",
+      "path": "skills/generate-lived-in-portraits",
+      "files": [
+        "SKILL.md",
+        "agents/openai.yaml",
+        "references/atmosphere-framework.md",
+        "references/authenticity-guidelines.md",
+        "references/reference-profile.md"
+      ],
+      "updatedAt": null
+    },
+    {
       "name": "manage-skillverse",
       "displayName": "Manage SkillVerse",
       "description": "Create, update, validate, catalog, package, and publish personal Codex skills in a SkillVerse Git repository. Use when adding a new skill under skills/, revising an existing SKILL.md or agents/openai.yaml, rebuilding the public skill catalog, preparing release archives, or publishing SkillVerse changes to GitHub.",
