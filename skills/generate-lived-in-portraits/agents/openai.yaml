@@ -1,4 +1,4 @@
 interface:
   display_name: "生活感真人肖像"
-  short_description: "Calibrate references for candid human portrait realism"
-  default_prompt: "Use $generate-lived-in-portraits to separate useful styling from filters and create a physically believable, lived-in portrait prompt."
+  short_description: "Create candid and cinematic portraits with real texture"
+  default_prompt: "Use $generate-lived-in-portraits to create a physically believable portrait with natural skin, coherent optics, and no beauty-filter artifacts."

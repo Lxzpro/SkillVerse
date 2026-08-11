@@ -29,6 +29,16 @@ Physical contact and body mechanics usually add more realism than adding freckle
 - Use restrained specular highlights; real skin is neither matte plastic nor uniformly glossy.
 - Keep makeup integrated with skin. Avoid perfectly crisp, airbrushed edges unless the scene calls for formal styling.
 
+### Extreme close-up skin and eyes
+
+- Scale detail to the crop. A half-face or single-eye portrait can carry more facial microdetail than a lifestyle portrait, but the detail must vary across the surface instead of appearing as a uniform pore overlay.
+- Make one eye the critical focus plane. Keep iris fibers, limbal transitions, tear meniscus, eyelash roots, and corneal reflections legible without enlarging the iris or turning the sclera pure white.
+- Couple catchlights to lighting. Soft side light should create a compatible soft reflection and gradual facial falloff; add rim light only as subtle edge separation.
+- Preserve optical hierarchy: the focus eye is extremely sharp, nearby skin has fine microcontrast, and the far cheek, nose edge, ear, hair, and background fall away naturally.
+- Use faint freckles, peach fuzz, tiny creases, occasional blocked pores, or minor blemishes selectively. Do not amplify every imperfection or confuse realism with dermatological harshness.
+- Preserve grouped brow hairs, irregular lash spacing, lip lines, and plausible beard or stubble growth where visible. Avoid identical isolated hairs or uniformly carved strands.
+- Describe RAW-like latitude, restrained color science, fine film grain, and editorial finish as visual qualities. Do not imply that a generated image is literally a camera RAW file.
+
 ### Hair and clothing
 
 - Describe hair in clumps and layers, not as thousands of equally separated strands.
@@ -72,6 +82,8 @@ Borrow different information from different source types:
 | Frozen catalog smile | Specify a smile forming, fading, or interrupted by movement |
 | Helmet-like hair | Describe grouped strands, uneven flyaways, and motion caused by wind or walking |
 | Every plane equally sharp | Define one focus plane and natural focus falloff |
+| Eye-centered crop looks synthetic | Keep one anatomically sized focus eye, physically consistent catchlights, moist tear line, varied surrounding skin texture, and optical falloff |
+| Pores look stamped or gritty | Vary pore visibility by facial zone and light angle; reduce global clarity and oversharpening |
 | Studio-perfect casual photo | Add a plausible phone position, off-center crop, ordinary ambient light, and one capture artifact |
 | Too many artificial defects | Remove the defect list; retain only 3–6 scene-caused irregularities |
 | Filtered influencer face | Restore plausible eye size, cheek and jaw volume, local skin color, and lens-consistent proportions |

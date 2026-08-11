@@ -80,10 +80,39 @@
       }
     },
     {
+      "name": "gathered-scenes-zine",
+      "displayName": "拾景纸刊",
+      "description": "Read a user-provided photograph and transform it into a restrained, tactile editorial paper artwork using the Gathered Scenes visual system. Use for photo-to-zine posters, torn-paper collage, risograph or halftone reinterpretation, documentary scene preservation, poetic image distillation, sparse editorial typography, and requests to turn an ordinary scene into a paper-based illustration while either retaining or removing the original photo.",
+      "shortDescription": "把普通照片转译为克制、留白充足的纸本拼贴与编辑插画作品",
+      "path": "skills/gathered-scenes-zine",
+      "files": [
+        "SKILL.md",
+        "agents/openai.yaml",
+        "references/style-system.md"
+      ],
+      "updatedAt": null,
+      "category": {
+        "id": "media",
+        "label": "图像与媒体"
+      },
+      "relatedCategories": [],
+      "classification": {
+        "method": "keyword-rules-v1",
+        "confidence": 1,
+        "matchedKeywords": [
+          "image",
+          "photo",
+          "illustration",
+          "插画",
+          "portrait"
+        ]
+      }
+    },
+    {
       "name": "generate-lived-in-portraits",
       "displayName": "生活感真人肖像",
-      "description": "Analyze and calibrate portrait references, including beauty-filtered and editorial sources, then create or refine prompts for photorealistic people with natural asymmetry, physical interaction, candid expression, believable skin and hair, and everyday camera character. Use for text-to-image or image-to-image requests that ask for a real-person look, lifestyle snapshot, candid selfie, documentary portrait, reduced AI/plastic/over-retouched appearance, faithful extraction of visible non-sensitive features, or separation of useful styling cues from filters, face reshaping, screenshots, and watermarks.",
-      "shortDescription": "Calibrate references for candid human portrait realism",
+      "description": "Analyze and calibrate portrait references, including beauty-filtered and editorial sources, then create or refine prompts for photorealistic people with natural asymmetry, physical interaction, candid expression, believable skin and hair, and plausible camera character. Use for text-to-image or image-to-image requests that ask for a real-person look, lifestyle snapshot, candid selfie, documentary portrait, extreme close-up or eye-centered cinematic portrait, RAW-like editorial texture, visible pores and peach fuzz, reduced AI/plastic/over-retouched appearance, faithful extraction of visible non-sensitive features, or separation of useful styling cues from filters, face reshaping, screenshots, and watermarks.",
+      "shortDescription": "Create candid and cinematic portraits with real texture",
       "path": "skills/generate-lived-in-portraits",
       "files": [
         "SKILL.md",
@@ -97,10 +126,15 @@
         "id": "media",
         "label": "图像与媒体"
       },
-      "relatedCategories": [],
+      "relatedCategories": [
+        {
+          "id": "devops",
+          "label": "部署与工程化"
+        }
+      ],
       "classification": {
         "method": "keyword-rules-v1",
-        "confidence": 1,
+        "confidence": 0.68,
         "matchedKeywords": [
           "image",
           "portrait",

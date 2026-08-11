@@ -1,0 +1,4 @@
+interface:
+  display_name: "拾景纸刊"
+  short_description: "把普通照片转译为克制、留白充足的纸本拼贴与编辑插画作品"
+  default_prompt: "Use $gathered-scenes-zine to turn this photo into a tactile editorial paper artwork."

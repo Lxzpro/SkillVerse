@@ -1,6 +1,6 @@
 ---
 name: generate-lived-in-portraits
-description: Analyze and calibrate portrait references, including beauty-filtered and editorial sources, then create or refine prompts for photorealistic people with natural asymmetry, physical interaction, candid expression, believable skin and hair, and everyday camera character. Use for text-to-image or image-to-image requests that ask for a real-person look, lifestyle snapshot, candid selfie, documentary portrait, reduced AI/plastic/over-retouched appearance, faithful extraction of visible non-sensitive features, or separation of useful styling cues from filters, face reshaping, screenshots, and watermarks.
+description: Analyze and calibrate portrait references, including beauty-filtered and editorial sources, then create or refine prompts for photorealistic people with natural asymmetry, physical interaction, candid expression, believable skin and hair, and plausible camera character. Use for text-to-image or image-to-image requests that ask for a real-person look, lifestyle snapshot, candid selfie, documentary portrait, extreme close-up or eye-centered cinematic portrait, RAW-like editorial texture, visible pores and peach fuzz, reduced AI/plastic/over-retouched appearance, faithful extraction of visible non-sensitive features, or separation of useful styling cues from filters, face reshaping, screenshots, and watermarks.
 ---
 
 # Generate Lived-In Portraits
@@ -15,19 +15,23 @@ Create believable people by describing a specific human moment, then adding a fe
    - moment: action, attention, emotion, environment;
    - capture: framing, lens feel, focus, exposure, motion, color;
    - authenticity: a small selection of plausible irregularities.
-3. Classify each source before borrowing from it:
+3. Classify the requested portrait scale before choosing realism cues:
+   - environmental or lifestyle portrait: distribute detail across body mechanics, contact, clothing, setting, and camera;
+   - head-and-shoulders portrait: balance facial material with expression, hair, clothing, and background depth;
+   - extreme close-up or eye-centered portrait: concentrate detail on the focus eye and nearby skin, then use natural optical falloff elsewhere.
+4. Classify each source before borrowing from it:
    - documentary or candid: use action, environment, camera, and material behavior;
    - curated lifestyle: use staging while restoring small physical irregularities;
    - beauty-filtered or editorial: use styling and composition selectively; reject digital face reshaping and plastic texture;
    - screenshot, collage, or repost: ignore UI, captions, borders, logos, and watermarks.
-4. Avoid guessing identity, ethnicity, health, personality, or other sensitive traits. Use apparent age only when the user supplies it or it is clearly necessary and safe.
-5. Read [authenticity-guidelines.md](references/authenticity-guidelines.md) when composing or critiquing a prompt. Read [reference-profile.md](references/reference-profile.md) when matching the accumulated visual samples or explaining their lifestyle quality.
-6. Read [atmosphere-framework.md](references/atmosphere-framework.md) whenever atmosphere, cinematic mood, time, weather, color, lighting, material, motion, or composition matters.
-7. Build one coherent production prompt in this order: subject and action; physical contact and weight; expression and gaze; setting and narrative evidence; light and color; space and weather; camera and composition; material and motion; chosen irregularities; exclusions.
-8. Spend a realism budget across 4–6 categories: face, hair, pose, clothing, environment, and camera. Usually choose one subtle cue per category instead of stacking many facial defects.
-9. Run a reality-alignment pass: make light, weather, time, color, material, movement, camera, body mechanics, and subject response describe the same physical instant at comparable detail.
-10. When generating, use the available image-generation tool. Include reference images through local paths when available; otherwise use the smallest number of recent conversation images that includes all targets.
-11. Inspect the result. Revise the dominant failure only: face geometry, skin, expression, hair, body mechanics, contact, lighting, framing, atmosphere coherence, or excessive polish. Preserve what already works.
+5. Avoid guessing identity, ethnicity, health, personality, or other sensitive traits. Use apparent age only when the user supplies it or it is clearly necessary and safe.
+6. Read [authenticity-guidelines.md](references/authenticity-guidelines.md) when composing or critiquing a prompt. Read [reference-profile.md](references/reference-profile.md) when matching the accumulated visual samples or explaining their lifestyle quality.
+7. Read [atmosphere-framework.md](references/atmosphere-framework.md) whenever atmosphere, cinematic mood, time, weather, color, lighting, material, motion, or composition matters.
+8. Build one coherent production prompt in this order: subject and action; physical contact and weight; expression and gaze; setting and narrative evidence; light and color; space and weather; camera and composition; material and motion; chosen irregularities; exclusions.
+9. Spend a realism budget across 4–6 categories: face, hair, pose, clothing, environment, and camera. Usually choose one subtle cue per category instead of stacking many facial defects. For an extreme close-up, redistribute the budget across eye, surrounding skin, brow/lashes, lips or stubble, light, and optics.
+10. Run a reality-alignment pass: make light, weather, time, color, material, movement, camera, body mechanics, and subject response describe the same physical instant at comparable detail.
+11. When generating, use the available image-generation tool. Include reference images through local paths when available; otherwise use the smallest number of recent conversation images that includes all targets.
+12. Inspect the result. Revise the dominant failure only: face geometry, skin, expression, hair, body mechanics, contact, lighting, framing, atmosphere coherence, or excessive polish. Preserve what already works.
 
 ## Prompt Requirements
 
@@ -52,6 +56,23 @@ Choose only the dimensions that materially affect the image. Keep their specific
 Use exclusions such as: `no beauty retouching, no waxy skin, no porcelain-smooth face, no digital face slimming, no enlarged irises, no perfect bilateral symmetry, no doll-like eyes, no individually sculpted hair strands, no uniformly sharp skin, no unexplained glamour key light, no captions, no watermark, no phone UI`.
 
 Do not request every imperfection at once. Avoid heavy acne, scars, eye distortion, warped anatomy, dirty skin, or exaggerated under-eye darkness unless the user explicitly asks for them.
+
+## Extreme Close-Up and Eye-Centered Portraits
+
+When one eye or half a face fills the frame, replace lifestyle cues that are outside the crop with scale-appropriate evidence. Include only what the crop can plausibly show:
+
+- use an intentional half-face crop with one eye as the unmistakable visual center; preserve natural facial proportions and avoid enlarging the eye;
+- place critical focus on the near iris and eyelash roots; describe iris fibers, a moist tear line, and catchlights that match the stated light sources;
+- render pores, fine vellus hair, faint freckles, local color variation, tiny creases, and restrained blemishes at varied intensity; keep them anatomically distributed rather than stamped uniformly across the skin;
+- keep lashes distinct without making every lash identical, and render dense brows as grouped hairs with a few unruly strands;
+- show lip lines, individual facial hairs, or short stubble only where visible and appropriate to the subject;
+- use soft side light with optional low-intensity rim separation, smooth shadow transitions, restrained highlights, and enough dynamic range to preserve both skin and eye detail;
+- define a single focus plane and believable falloff across the nose, cheek, ear, and background; do not make every pore equally sharp;
+- use a full-frame, short-telephoto close-focus or macro-capable lens feel, a wide aperture around f/2 when desired, subtle microcontrast, restrained color, fine film grain, and RAW-like tonal latitude as an aesthetic description rather than a literal file-format claim.
+
+Treat `85mm macro` as shorthand only when the generator understands it. Prefer `85mm short-telephoto portrait perspective with close-focus or macro-capable rendering` because many 85mm portrait lenses are not true macro lenses. Keep "museum-quality" or "award-winning editorial" as finishing direction, not a substitute for concrete light, anatomy, texture, and optical behavior.
+
+Use close-up exclusions such as: `no skin smoothing, no poreless wax skin, no uniformly embossed pores, no enlarged iris, no dry glassy eye, no duplicate catchlights, no clumped false lashes, no painted-on eyebrow hairs, no oversharpening halos, no crunchy HDR, no anatomically distorted crop`.
 
 ## Output Format
 
